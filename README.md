@@ -1,32 +1,95 @@
-# React + TypeScript + Vite
+# TaskFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+TaskFlow est une application de gestion de tâches en mode Kanban, développée avec React, TypeScript, Vite, Tailwind CSS, Framer Motion et Lucide React.
 
-Currently, two official plugins are available:
+L’application permet à une équipe de visualiser les tâches, les répartir entre colonnes, suivre les priorités, rechercher des projets et échanger dans les détails de chaque tâche.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fonctionnalités
 
-## React Compiler
+- Tableau Kanban avec les colonnes **À faire**, **En cours** et **Terminé**.
+- Création, modification et suppression de tâches.
+- Déplacement des tâches entre les colonnes.
+- Assignation de plusieurs membres à une tâche.
+- Priorités haute, moyenne et basse.
+- Recherche par titre ou description.
+- Filtrage par priorité.
+- Vue tableau et vue liste.
+- Commentaires sur les tâches.
+- Statistiques d’avancement, de tâches urgentes, de temps économisé et de vitesse.
+- Persistance des données dans le navigateur avec `localStorage`.
+- Interface responsive pour le bureau, la tablette et le mobile.
+- Animations avec Framer Motion et icônes Lucide React.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack technique
 
-## Expanding the Oxlint configuration
+- **Frontend :** React 19 et TypeScript.
+- **Build :** Vite 8.
+- **Styling :** Tailwind CSS 3.
+- **Animations :** Framer Motion.
+- **Icônes :** Lucide React.
+- **Lint :** Oxlint.
+- **Données :** `localStorage`.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Prérequis
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Node.js 20 ou une version plus récente.
+- npm.
+
+## Installation
+
+Clonez le dépôt, puis installez les dépendances :
+
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Développement
+
+Démarrez le serveur de développement :
+
+```bash
+npm run dev
+```
+
+L’application est disponible à l’adresse affichée par Vite, généralement `http://localhost:5173`.
+
+## Vérification
+
+Pour compiler l’application :
+
+```bash
+npm run build
+```
+
+Pour exécuter le lint :
+
+```bash
+npm run lint
+```
+
+Pour afficher la version de production locale :
+
+```bash
+npm run preview
+```
+
+## Structure du projet
+
+```text
+src/
+├── components/       # Composants de l’interface
+├── data/             # Membres, colonnes et tâches initiales
+├── hooks/            # Hooks personnalisés
+├── types/            # Types TypeScript
+├── App.tsx           # Application principale
+├── index.css         # Styles Tailwind et CSS globaux
+└── main.tsx          # Point d’entrée React
+```
+
+## Persistance des données
+
+Les tâches sont enregistrées dans le stockage local du navigateur sous la clé `taskflow-tasks`. Les données sont donc conservées entre les redémarrages de l’application, mais ne sont pas synchronisées entre appareils ou utilisateurs.
+
+## Données de démonstration
+
+Le projet utilise actuellement des données fictives pour démontrer l’application. Vous pouvez les remplacer par vos données dans `src/data/initialData.ts`.
